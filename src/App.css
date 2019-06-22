@@ -1,33 +1,63 @@
-.App {
-  text-align: center;
+body {
+  font-family: sans-serif;
+}
+.container{
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  z-index: 15;
+  top: 50%;
+  left: 50%;
+  margin: -100px 0 0 -150px;
+
+
+}
+input {
+  border: 1px solid #999;
+  padding: 0.5rem;
+  width: 300px;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.no-suggestions {
+  color: #999;
+  padding: 0.5rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.suggestions {
+  border: 1px solid #999;
+  border-top-width: 0;
+  list-style: none;
+  margin-top: 0;
+  max-height: 143px;
+  overflow-y: auto;
+  padding-left: 0;
+  width: calc(300px + 1rem);
 }
 
-.App-link {
-  color: #61dafb;
+.suggestions li {
+  padding: 0.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.suggestion-active{
+  background-color: #7ff0d2;
+  color: #fae042;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.card div.summary:hover {
+  background-color: #7ff0d2;
+  color: #fae042;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.cardd{
+  overflow:  scroll;
+   max-height: 400px;
+}
+
+::-webkit-scrollbar { /* scrollbar height */
+  width: 1px;
+  background: transparent; /* optional: just make scrollbar invisible */
 }

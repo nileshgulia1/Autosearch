@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { render } from "react-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Autocomplete from "./Autocomplete";
+
+require("./App.css");
+
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: []
+    }
+  }
+
+  componentDidMount() {
+    fetch('http://www.mocky.io/v2/5ba8efb23100007200c2750c').then(response =>
+      response.json()
+    ).then(response => {
+      console.log(response)
+      this.setState({
+        data: response
+      })
+    })
+  }
+
+  render() {
+
+
+    return (
+      <div className="container">
+        <h1>Search for Users!</h1>
+        <h2>Start typing </h2>
+        <Autocomplete
+          suggestions={this.state.data}
+        />
+      </div>
+    );
+  }
 }
-
-export default App;
+export default App
